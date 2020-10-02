@@ -22,6 +22,7 @@
 // Use your function to create a card for each of the articles, and append each card to the DOM.
 import axios from 'axios'
 const cardContain = document.querySelector('.cards-container')
+const cardd = document.querySelector('.card')
 
 //crating article function
 function articleMaker(object) {
@@ -51,9 +52,15 @@ function articleMaker(object) {
     img.src = object.authorPhoto
     author.textContent = `By: ${object.authorName}`
 
+    //adding event listener
+    mainDiv.addEventListener('click', () => {
+        console.log(object.headline)
+    })
+
     //returning MainDiv
     return mainDiv
 }
+
 
 axios.get('https://lambda-times-api.herokuapp.com/articles')
     .then(res => {
