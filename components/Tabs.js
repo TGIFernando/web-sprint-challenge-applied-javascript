@@ -17,10 +17,8 @@ const top = document.querySelector(".topics")
 axios.get('https://lambda-times-api.herokuapp.com/topics')
     .then(res => {
         const names = res.data.topics
-        console.log(names)
         names.forEach(name => {
             const card = topicMaker(name)
-            console.log(card)
             top.appendChild(card)
         })
 
